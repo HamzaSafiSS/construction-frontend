@@ -1,0 +1,209 @@
+/* Hero Section Container */
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 6.5rem;
+  padding-bottom: 2rem;
+  overflow: hidden;
+  background-color: var(--color-dark-bg);
+}
+
+/* Background Media & Layering */
+.hero-bg-media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  transform: scale(1.02);
+  transition: transform 10s ease-out;
+}
+
+.hero-section:hover .hero-bg-img {
+  transform: scale(1.05);
+}
+
+.hero-overlay-gradient {
+  position: absolute;
+  inset: 0;
+  background:
+    /* Soft left-side scrim to guarantee text legibility while keeping the entire sunset and structure vivid */
+    linear-gradient(90deg, rgba(11, 14, 20, 0.82) 0%, rgba(11, 14, 20, 0.52) 42%, rgba(11, 14, 20, 0.12) 72%, rgba(11, 14, 20, 0.02) 100%),
+    /* Minimal top/bottom feather for navbar and dock integration */
+    linear-gradient(180deg, rgba(11, 14, 20, 0.45) 0%, transparent 18%, transparent 82%, rgba(11, 14, 20, 0.8) 100%);
+}
+
+.hero-grid-pattern {
+  display: none;
+}
+
+/* Hero Content Area */
+.hero-container {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 1rem 2rem 2rem 2rem;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.hero-content {
+  max-width: 720px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Eyebrow */
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.eyebrow-accent-bar {
+  width: 24px;
+  height: 3px;
+  background-color: var(--color-orange);
+  border-radius: 2px;
+}
+
+.eyebrow-text {
+  font-family: var(--font-heading);
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-orange);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+/* Headline */
+.hero-headline {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-size: clamp(3rem, 6.2vw, 5.2rem);
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+}
+
+.headline-white {
+  color: #FFFFFF;
+}
+
+.headline-accent {
+  color: var(--color-orange);
+  text-shadow: 0 0 35px rgba(255, 94, 20, 0.35);
+}
+
+/* Description */
+.hero-description {
+  font-size: clamp(1rem, 1.15vw, 1.15rem);
+  line-height: 1.6;
+  color: #CBD5E1;
+  margin-bottom: 2rem;
+  max-width: 620px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+/* Actions */
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.hero-btn {
+  padding: 0.95rem 1.85rem;
+  font-size: 0.92rem;
+}
+
+/* Trust Chips */
+.hero-trust-chips {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+}
+
+.trust-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.85rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-sm);
+  font-size: 0.78rem;
+  color: #94A3B8;
+  font-weight: 500;
+}
+
+.trust-chip .chip-icon {
+  color: var(--color-orange);
+  flex-shrink: 0;
+}
+
+/* Dock Container */
+.hero-stats-dock-container {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .hero-section {
+    padding-top: 6.5rem;
+  }
+
+  .hero-headline {
+    font-size: clamp(2.6rem, 6vw, 4rem);
+  }
+
+  .hero-container {
+    padding: 1.5rem 1.5rem 3rem 1.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-section {
+    padding-top: 5.5rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.85rem;
+  }
+
+  .hero-btn {
+    width: 100%;
+  }
+
+  .hero-trust-chips {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
