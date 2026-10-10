@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import AboutUs from './components/AboutUs';
+import WhyChooseUs from './components/WhyChooseUs';
 import QuoteModal from './components/QuoteModal';
 import './App.css';
 
@@ -19,6 +20,9 @@ export default function App() {
 
         {/* 5. About Us Section */}
         <AboutUs />
+
+        {/* 6. Why Choose Us Section */}
+        <WhyChooseUs />
 
         {/* Phase Anchor Containers for Seamless Link Navigation */}
         <div id="services" className="section-anchor"></div>
