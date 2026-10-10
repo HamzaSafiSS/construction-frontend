@@ -1,5 +1,5 @@
 .about-us-section {
-  padding: 8rem 0;
+  padding: 4.75rem 0;
   background-color: var(--color-dark-bg);
   position: relative;
   overflow: hidden;
@@ -25,7 +25,7 @@
   padding: 0 2rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 5rem;
+  gap: 3.5rem;
   align-items: center;
   position: relative;
   z-index: 1;
@@ -152,7 +152,7 @@
 /* Mission & Vision Wrapper */
 .mission-vision-wrapper {
   max-width: 1360px;
-  margin: 4rem auto 0;
+  margin: 2.75rem auto 0;
   padding: 0 2rem;
   position: relative;
   z-index: 1;
@@ -344,7 +344,7 @@
 
 @media (max-width: 768px) {
   .about-us-section {
-    padding: 5rem 0;
+    padding: 3.25rem 0;
   }
   
   .mission-vision {

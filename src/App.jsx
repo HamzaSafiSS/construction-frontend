@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import AboutUs from './components/AboutUs';
 import WhyChooseUs from './components/WhyChooseUs';
+import Services from './components/Services';
 import QuoteModal from './components/QuoteModal';
 import './App.css';
 
@@ -24,8 +25,10 @@ export default function App() {
         {/* 6. Why Choose Us Section */}
         <WhyChooseUs />
 
+        {/* 7. Services Section (Curved Showcase & 2-Column Disciplines) */}
+        <Services onOpenQuote={() => setIsQuoteOpen(true)} />
+
         {/* Phase Anchor Containers for Seamless Link Navigation */}
-        <div id="services" className="section-anchor"></div>
         <div id="projects" className="section-anchor"></div>
         <div id="industries" className="section-anchor"></div>
         <div id="team" className="section-anchor"></div>
