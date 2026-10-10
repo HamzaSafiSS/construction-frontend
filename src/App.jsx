@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import AboutUs from './components/AboutUs';
 import QuoteModal from './components/QuoteModal';
 import './App.css';
 
@@ -16,8 +17,10 @@ export default function App() {
         {/* 3. Hero Section with Trust Statistics Dock */}
         <Hero onOpenQuote={() => setIsQuoteOpen(true)} />
 
+        {/* 5. About Us Section */}
+        <AboutUs />
+
         {/* Phase Anchor Containers for Seamless Link Navigation */}
-        <div id="about" className="section-anchor"></div>
         <div id="services" className="section-anchor"></div>
         <div id="projects" className="section-anchor"></div>
         <div id="industries" className="section-anchor"></div>
