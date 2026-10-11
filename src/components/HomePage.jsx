@@ -3,6 +3,7 @@ import AboutUs from './AboutUs';
 import WhyChooseUs from './WhyChooseUs';
 import Services from './Services';
 import Projects from './Projects';
+import OurProcess from './OurProcess';
 
 export default function HomePage({ onOpenQuote }) {
   return (
@@ -21,6 +22,9 @@ export default function HomePage({ onOpenQuote }) {
 
       {/* 9. Our Projects Section (Filterable Gallery) */}
       <Projects />
+
+      {/* 12. Our Process Section (6-Stage Construction Timeline) */}
+      <OurProcess onOpenQuote={onOpenQuote} />
 
       {/* Phase Anchor Containers for Seamless Link Navigation */}
       <div id="industries" className="section-anchor"></div>
