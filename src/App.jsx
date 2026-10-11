@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import AboutUs from './components/AboutUs';
-import WhyChooseUs from './components/WhyChooseUs';
-import Services from './components/Services';
+import HomePage from './components/HomePage';
+import ServiceDetail from './components/ServiceDetail';
 import QuoteModal from './components/QuoteModal';
 import './App.css';
 
@@ -16,29 +15,25 @@ export default function App() {
       <Navbar onOpenQuote={() => setIsQuoteOpen(true)} />
 
       <main className="main-content">
-        {/* 3. Hero Section with Trust Statistics Dock */}
-        <Hero onOpenQuote={() => setIsQuoteOpen(true)} />
-
-        {/* 5. About Us Section */}
-        <AboutUs />
-
-        {/* 6. Why Choose Us Section */}
-        <WhyChooseUs />
-
-        {/* 7. Services Section (Curved Showcase & 2-Column Disciplines) */}
-        <Services onOpenQuote={() => setIsQuoteOpen(true)} />
-
-        {/* Phase Anchor Containers for Seamless Link Navigation */}
-        <div id="projects" className="section-anchor"></div>
-        <div id="industries" className="section-anchor"></div>
-        <div id="team" className="section-anchor"></div>
-        <div id="news" className="section-anchor"></div>
-        <div id="faqs" className="section-anchor"></div>
-        <div id="contact" className="section-anchor"></div>
+        <Routes>
+          <Route
+            path="/"
+            element={<HomePage onOpenQuote={() => setIsQuoteOpen(true)} />}
+          />
+          <Route
+            path="/services/:slug"
+            element={
+              <ServiceDetail onOpenQuote={() => setIsQuoteOpen(true)} />
+            }
+          />
+        </Routes>
       </main>
 
       {/* Interactive Project Quote Modal */}
-      <QuoteModal isOpen={isQuoteOpen} onClose={() => setIsQuoteOpen(false)} />
+      <QuoteModal
+        isOpen={isQuoteOpen}
+        onClose={() => setIsQuoteOpen(false)}
+      />
     </div>
   );
 }

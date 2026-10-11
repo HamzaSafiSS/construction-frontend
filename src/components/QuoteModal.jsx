@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { X, Send, CheckCircle2, Building, Factory, Home, Landmark, Wrench } from 'lucide-react';
 import './QuoteModal.css';
 

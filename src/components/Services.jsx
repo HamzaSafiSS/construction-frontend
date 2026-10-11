@@ -1,4 +1,4 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
 import './Services.css';
 import { 
   Building, 
@@ -15,6 +15,7 @@ const FOUR_SERVICES = [
     {
       id: '01',
       title: 'Commercial Construction',
+      slug: 'commercial-construction',
       description: 'Modern commercial spaces designed for functionality, durability and long-term asset value.',
       icon: Building,
       badge: 'Corporate & Retail'
@@ -22,6 +23,7 @@ const FOUR_SERVICES = [
     {
       id: '02',
       title: 'General Construction',
+      slug: 'general-construction',
       description: 'Complete construction services from site preparation and foundation to final turnkey delivery.',
       icon: HardHat,
       badge: 'Turnkey Delivery'
@@ -32,6 +34,7 @@ const FOUR_SERVICES = [
     {
       id: '03',
       title: 'Industrial Construction',
+      slug: 'industrial-construction',
       description: 'Heavy manufacturing plants, logistics warehouses, and demanding industrial facilities.',
       icon: Factory,
       badge: 'Heavy Industrial'
@@ -39,6 +42,7 @@ const FOUR_SERVICES = [
     {
       id: '04',
       title: 'Engineering & Planning',
+      slug: 'engineering-planning',
       description: 'Technical coordination, 3D BIM modeling, and structural engineering ensuring peak precision.',
       icon: Compass,
       badge: 'BIM & Structural'
@@ -76,7 +80,11 @@ export default function Services({ onOpenQuote }) {
                 {FOUR_SERVICES[0].map((service) => {
                   const IconComp = service.icon;
                   return (
-                    <div key={service.id} className="service-item-row">
+                    <Link
+                      key={service.id}
+                      to={`/services/${service.slug}`}
+                      className="service-item-row service-item-link"
+                    >
                       <div className="service-icon-outer-ring">
                         <div className="service-icon-inner-disc">
                           <IconComp size={19} className="service-lucide-icon" strokeWidth={2} />
@@ -89,8 +97,11 @@ export default function Services({ onOpenQuote }) {
                           <span className="service-row-badge">{service.badge}</span>
                         </div>
                         <p className="service-row-desc">{service.description}</p>
+                        <span className="service-learn-more">
+                          Learn More <ArrowRight size={13} />
+                        </span>
                       </div>
-                    </div>
+                    </Link>
                   );
                 })}
               </div>
@@ -103,7 +114,11 @@ export default function Services({ onOpenQuote }) {
                 {FOUR_SERVICES[1].map((service) => {
                   const IconComp = service.icon;
                   return (
-                    <div key={service.id} className="service-item-row">
+                    <Link
+                      key={service.id}
+                      to={`/services/${service.slug}`}
+                      className="service-item-row service-item-link"
+                    >
                       <div className="service-icon-outer-ring">
                         <div className="service-icon-inner-disc">
                           <IconComp size={19} className="service-lucide-icon" strokeWidth={2} />
@@ -116,8 +131,11 @@ export default function Services({ onOpenQuote }) {
                           <span className="service-row-badge">{service.badge}</span>
                         </div>
                         <p className="service-row-desc">{service.description}</p>
+                        <span className="service-learn-more">
+                          Learn More <ArrowRight size={13} />
+                        </span>
                       </div>
-                    </div>
+                    </Link>
                   );
                 })}
               </div>

@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { Menu, X, ArrowRight, Phone, Mail, Clock, ShieldCheck } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { Menu, X, ArrowRight, Phone, Mail, Clock } from 'lucide-react';
 import './Navbar.css';
 
 const NAV_LINKS = [
@@ -18,6 +19,11 @@ export default function Navbar({ onOpenQuote }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeLink, setActiveLink] = useState('Home');
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  // Check if we're on the home page
+  const isHomePage = location.pathname === '/' || location.pathname === '';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -47,9 +53,31 @@ export default function Navbar({ onOpenQuote }) {
   const handleNavClick = (linkName, href) => {
     setActiveLink(linkName);
     setMobileMenuOpen(false);
-    const targetElement = document.querySelector(href);
-    if (targetElement) {
-      targetElement.scrollIntoView({ behavior: 'smooth' });
+
+    if (!isHomePage) {
+      // Navigate to home first, then scroll
+      navigate('/');
+      // Wait for navigation to complete before scrolling
+      setTimeout(() => {
+        const targetElement = document.querySelector(href);
+        if (targetElement) {
+          targetElement.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    } else {
+      const targetElement = document.querySelector(href);
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
+
+  const handleBrandClick = () => {
+    setActiveLink('Home');
+    if (!isHomePage) {
+      navigate('/');
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
 
@@ -58,7 +86,7 @@ export default function Navbar({ onOpenQuote }) {
       <header className={`navbar-header ${isScrolled ? 'scrolled' : ''}`}>
         <div className="navbar-container">
           {/* Brand Logo */}
-          <a href="#home" className="navbar-brand" onClick={() => setActiveLink('Home')}>
+          <a href="#home" className="navbar-brand" onClick={(e) => { e.preventDefault(); handleBrandClick(); }}>
             <div className="brand-logo-mark">
               {/* Construction geometric 'B' mark */}
               <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" className="brand-svg">

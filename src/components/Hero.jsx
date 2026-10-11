@@ -1,9 +1,8 @@
-import React from 'react';
 import { ArrowRight, ShieldAlert, Award, Compass } from 'lucide-react';
 import TrustStats from './TrustStats';
 import './Hero.css';
 
-export default function Hero({ onOpenQuote }) {
+export default function Hero() {
   const scrollToSection = (id) => {
     const el = document.getElementById(id);
     if (el) {

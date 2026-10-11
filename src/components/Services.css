@@ -329,6 +329,41 @@
   box-shadow: 0 0 8px var(--color-orange);
 }
 
+/* Service Item Links (Router Integration) */
+.service-item-link {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.service-learn-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-orange);
+  letter-spacing: 0.02em;
+  margin-top: 0.45rem;
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: all var(--transition-fast);
+}
+
+.service-item-row:hover .service-learn-more {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.service-learn-more svg {
+  transition: transform var(--transition-fast);
+}
+
+.service-item-row:hover .service-learn-more svg {
+  transform: translateX(3px);
+}
+
 /* ==========================================================================
    Responsive Adaptations
    ========================================================================== */

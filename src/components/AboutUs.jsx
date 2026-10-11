@@ -1,4 +1,3 @@
-import React from 'react';
 import './AboutUs.css';
 import { CheckCircle2, Briefcase, Users, MapPin, CalendarDays, ArrowRight } from 'lucide-react';
 
