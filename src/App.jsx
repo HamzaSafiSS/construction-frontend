@@ -5,6 +5,7 @@ import HomePage from './components/HomePage';
 import ServiceDetail from './components/ServiceDetail';
 import ProjectDetail from './components/ProjectDetail';
 import Contact from './components/Contact';
+import Footer from './components/Footer';
 import QuoteModal from './components/QuoteModal';
 import './App.css';
 
@@ -45,6 +46,9 @@ export default function App() {
           />
         </Routes>
       </main>
+
+      {/* 23. Global Footer */}
+      <Footer onOpenQuote={() => setIsQuoteOpen(true)} />
 
       {/* Interactive Project Quote Modal */}
       <QuoteModal
