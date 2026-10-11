@@ -1,0 +1,486 @@
+/* ==========================================================================
+   Safety & Quality Section — Core Commitment
+   ========================================================================== */
+
+.sq-section {
+  position: relative;
+  background-color: #07090E;
+  padding: 6.5rem 0 7rem;
+  overflow: hidden;
+  border-top: 1px solid var(--color-dark-border);
+  border-bottom: 1px solid var(--color-dark-border);
+}
+
+/* Background Subtle Architectural Grid & Glow */
+.sq-bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 54px 54px;
+  pointer-events: none;
+  opacity: 0.75;
+}
+
+.sq-ambient-glow {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 950px;
+  height: 550px;
+  background: radial-gradient(
+    ellipse,
+    rgba(255, 94, 20, 0.08) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.sq-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* ==========================================================================
+   1. Header Section
+   ========================================================================== */
+
+.sq-top-header {
+  text-align: center;
+  max-width: 820px;
+  margin: 0 auto 3.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sq-pill-badge {
+  display: inline-flex;
+  align-items: center;
+  background-color: rgba(255, 94, 20, 0.12);
+  border: 1px solid rgba(255, 94, 20, 0.35);
+  border-radius: var(--radius-full);
+  padding: 0.35rem 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.sq-pill-badge .pill-text {
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--color-orange);
+  text-transform: uppercase;
+}
+
+.sq-accent-bar {
+  width: 50px;
+  height: 3px;
+  background-color: var(--color-orange);
+  border-radius: var(--radius-full);
+  margin-bottom: 0.85rem;
+}
+
+.sq-eyebrow {
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  color: var(--color-text-dim);
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.sq-main-title {
+  font-size: clamp(2rem, 3.8vw, 2.85rem);
+  font-weight: 900;
+  color: var(--color-text-white);
+  line-height: 1.2;
+  margin-bottom: 1.15rem;
+  letter-spacing: 0.02em;
+}
+
+.sq-lead-subtitle {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 760px;
+}
+
+/* ==========================================================================
+   2. Visual Showcase: Engineers & Workers with PPE on Site
+   ========================================================================== */
+
+.sq-visual-showcase {
+  margin-bottom: 4.5rem;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--color-dark-border);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.55);
+}
+
+.sq-visual-media {
+  position: relative;
+  aspect-ratio: 21 / 9;
+  min-height: 360px;
+  max-height: 520px;
+  background-color: #0E121B;
+}
+
+.sq-visual-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sq-visual-showcase:hover .sq-visual-img {
+  transform: scale(1.03);
+}
+
+.sq-visual-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(7, 9, 14, 0.25) 0%,
+    rgba(7, 9, 14, 0.45) 50%,
+    rgba(7, 9, 14, 0.88) 100%
+  );
+}
+
+/* Floating Reassurance Badges on Image */
+.sq-visual-floating-badge {
+  position: absolute;
+  bottom: 2rem;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: rgba(14, 18, 27, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-md);
+  padding: 0.9rem 1.4rem;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5);
+  transition: all var(--transition-fast);
+}
+
+.sq-visual-floating-badge:hover {
+  border-color: var(--color-orange);
+  transform: translateY(-3px);
+}
+
+.sq-badge-left {
+  left: 2rem;
+}
+
+.sq-badge-right {
+  right: 2rem;
+}
+
+.sq-badge-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 94, 20, 0.16);
+  color: var(--color-orange);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.sq-badge-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.sq-badge-title {
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: var(--color-text-white);
+  line-height: 1.25;
+}
+
+.sq-badge-sub {
+  font-size: 0.78rem;
+  color: var(--color-text-dim);
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   3. Key Focus Areas Grid (6 Structured Cards)
+   ========================================================================== */
+
+.sq-focus-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-bottom: 4.5rem;
+}
+
+/* Individual Focus Card */
+.sq-focus-card {
+  background: var(--color-dark-surface);
+  border: 1px solid var(--color-dark-border);
+  border-radius: var(--radius-lg);
+  padding: 2rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-fast);
+  position: relative;
+  overflow: hidden;
+}
+
+.sq-focus-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--color-orange), transparent);
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.sq-focus-card:hover {
+  border-color: rgba(255, 94, 20, 0.45);
+  transform: translateY(-5px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
+}
+
+.sq-focus-card:hover .sq-focus-card::before {
+  opacity: 1;
+}
+
+/* Card Top: Icon & Tag */
+.sq-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.35rem;
+}
+
+.sq-icon-box {
+  width: 46px;
+  height: 46px;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 94, 20, 0.12);
+  color: var(--color-orange);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all var(--transition-fast);
+}
+
+.sq-focus-card:hover .sq-icon-box {
+  background: var(--color-orange);
+  color: #FFFFFF;
+}
+
+.sq-card-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-dim);
+  background: rgba(255, 255, 255, 0.04);
+  padding: 0.28rem 0.65rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Card Body */
+.sq-card-body {
+  flex: 1;
+  margin-bottom: 1.35rem;
+}
+
+.sq-card-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--color-text-white);
+  line-height: 1.25;
+  margin-bottom: 0.65rem;
+}
+
+.sq-card-desc {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+}
+
+/* Card Footer: Highlight Snippet */
+.sq-card-footer {
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.sq-highlight-wrap {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.sq-highlight-check {
+  color: #10B981;
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+}
+
+.sq-highlight-text {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-text-dim);
+  line-height: 1.45;
+}
+
+/* ==========================================================================
+   4. Bottom Assurance & Action Dock
+   ========================================================================== */
+
+.sq-bottom-dock {
+  background: linear-gradient(135deg, #0F131D 0%, #151B27 100%);
+  border: 1px solid var(--color-dark-border);
+  border-radius: var(--radius-lg);
+  padding: 2rem 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2.5rem;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
+}
+
+.sq-dock-indicators {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.sq-indicator-item {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.indicator-icon {
+  color: var(--color-orange);
+  flex-shrink: 0;
+}
+
+.indicator-copy {
+  display: flex;
+  flex-direction: column;
+}
+
+.indicator-val {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--color-text-white);
+}
+
+.indicator-label {
+  font-size: 0.78rem;
+  color: var(--color-text-dim);
+  font-weight: 500;
+}
+
+.sq-indicator-divider {
+  width: 1px;
+  height: 36px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.sq-dock-action {
+  flex-shrink: 0;
+}
+
+.sq-cta-btn {
+  padding: 0.95rem 1.85rem;
+  font-size: 0.88rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  white-space: nowrap;
+}
+
+/* ==========================================================================
+   Responsive Adaptations
+   ========================================================================== */
+
+@media (max-width: 1200px) {
+  .sq-focus-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .sq-bottom-dock {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.75rem;
+  }
+
+  .sq-dock-indicators {
+    justify-content: space-between;
+  }
+
+  .sq-cta-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 820px) {
+  .sq-section {
+    padding: 4.5rem 0 5rem;
+  }
+
+  .sq-visual-media {
+    min-height: 280px;
+    aspect-ratio: 16 / 10;
+  }
+
+  .sq-badge-left,
+  .sq-badge-right {
+    position: static;
+    margin: 0.75rem 1rem;
+  }
+
+  .sq-visual-floating-badge {
+    position: static;
+    margin: 0.75rem 1rem 0;
+  }
+
+  .sq-visual-showcase {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 1.5rem;
+    background: #0E121B;
+  }
+
+  .sq-focus-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .sq-indicator-divider {
+    display: none;
+  }
+
+  .sq-dock-indicators {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+  }
+}

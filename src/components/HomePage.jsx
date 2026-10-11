@@ -5,6 +5,7 @@ import Services from './Services';
 import Projects from './Projects';
 import OurProcess from './OurProcess';
 import Industries from './Industries';
+import SafetyQuality from './SafetyQuality';
 
 export default function HomePage({ onOpenQuote }) {
   return (
@@ -29,6 +30,9 @@ export default function HomePage({ onOpenQuote }) {
 
       {/* 12. Our Process Section (6-Stage Construction Timeline) */}
       <OurProcess onOpenQuote={onOpenQuote} />
+
+      {/* 13. Safety & Quality Section */}
+      <SafetyQuality onOpenQuote={onOpenQuote} />
 
       {/* Phase Anchor Containers for Seamless Link Navigation */}
       <div id="team" className="section-anchor"></div>

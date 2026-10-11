@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Menu, X, ArrowRight, Phone, Mail, Clock } from 'lucide-react';
 import './Navbar.css';
@@ -18,22 +18,65 @@ export default function Navbar({ onOpenQuote }) {
   const [activeLink, setActiveLink] = useState('Home');
   const navigate = useNavigate();
   const location = useLocation();
+  const isClickScrollingRef = useRef(false);
+  const clickTimeoutRef = useRef(null);
 
   // Check if we're on the home page
   const isHomePage = location.pathname === '/' || location.pathname === '';
 
+  // Two-way ScrollSpy: Update active link & underline on scrolling up and down
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      if (window.scrollY > 40) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrollY = window.scrollY;
+          setIsScrolled(scrollY > 40);
+
+          // Only perform scrollspy on home page and when not animated by a click
+          if (isHomePage && !isClickScrollingRef.current) {
+            // 1. Very top of the page activates Home
+            if (scrollY < 100) {
+              setActiveLink('Home');
+            } else if (
+              window.innerHeight + scrollY >=
+              document.documentElement.scrollHeight - 70
+            ) {
+              // Reached bottom of the page activates Contact
+              setActiveLink('Contact');
+            } else {
+              // Check sections in sequence based on viewport position
+              let current = 'Home';
+              for (const link of NAV_LINKS) {
+                const el = document.querySelector(link.href);
+                if (el) {
+                  const rect = el.getBoundingClientRect();
+                  // 160px threshold accounts for fixed header and focal area
+                  if (rect.top <= 160) {
+                    current = link.name;
+                  }
+                }
+              }
+              setActiveLink(current);
+            }
+          }
+
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    // Initial evaluation
+    handleScroll();
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (clickTimeoutRef.current) clearTimeout(clickTimeoutRef.current);
+    };
+  }, [isHomePage]);
 
   // Prevent background scrolling when mobile drawer is open
   useEffect(() => {
@@ -50,6 +93,13 @@ export default function Navbar({ onOpenQuote }) {
   const handleNavClick = (linkName, href) => {
     setActiveLink(linkName);
     setMobileMenuOpen(false);
+
+    // Suppress scrollspy momentarily during smooth programmatic scroll
+    isClickScrollingRef.current = true;
+    if (clickTimeoutRef.current) clearTimeout(clickTimeoutRef.current);
+    clickTimeoutRef.current = setTimeout(() => {
+      isClickScrollingRef.current = false;
+    }, 900);
 
     if (!isHomePage) {
       // Navigate to home first, then scroll
