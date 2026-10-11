@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { MapPin, CalendarDays, ArrowRight } from 'lucide-react';
 import projectsData, { PROJECT_CATEGORIES } from '../data/projectsData';
 import './Projects.css';
@@ -53,23 +54,34 @@ export default function Projects() {
         <div className="projects-gallery-grid">
           {visibleProjects.map((project) => (
             <article key={project.id} className="project-card">
-              <div className="project-card-media">
-                <img
-                  src={project.image}
-                  alt={`${project.name} — ${project.category} construction project in ${project.location}`}
-                  className="project-card-image"
-                  loading="lazy"
-                />
-                <div className="project-card-overlay"></div>
-                <span className="project-category-badge">{project.category}</span>
-                <span className="project-year-badge">
-                  <CalendarDays size={13} />
-                  {project.year}
-                </span>
-              </div>
+              <Link
+                to={`/projects/${project.id}`}
+                className="project-card-media-link"
+                aria-label={`View ${project.name} case study`}
+              >
+                <div className="project-card-media">
+                  <img
+                    src={project.image}
+                    alt={`${project.name} — ${project.category} construction project in ${project.location}`}
+                    className="project-card-image"
+                    loading="lazy"
+                  />
+                  <div className="project-card-overlay"></div>
+                  <span className="project-category-badge">{project.category}</span>
+                  <span className="project-year-badge">
+                    <CalendarDays size={13} />
+                    {project.year}
+                  </span>
+                </div>
+              </Link>
 
               <div className="project-card-body">
-                <h3 className="project-card-title">{project.name}</h3>
+                <Link
+                  to={`/projects/${project.id}`}
+                  className="project-card-title-link"
+                >
+                  <h3 className="project-card-title">{project.name}</h3>
+                </Link>
 
                 <div className="project-card-location">
                   <MapPin size={14} className="project-location-icon" />
@@ -78,10 +90,13 @@ export default function Projects() {
 
                 <p className="project-card-desc">{project.description}</p>
 
-                <button type="button" className="project-view-link">
+                <Link
+                  to={`/projects/${project.id}`}
+                  className="project-view-link"
+                >
                   <span>VIEW PROJECT</span>
                   <ArrowRight size={15} className="project-view-arrow" />
-                </button>
+                </Link>
               </div>
             </article>
           ))}

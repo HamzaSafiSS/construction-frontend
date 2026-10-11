@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import HomePage from './components/HomePage';
 import ServiceDetail from './components/ServiceDetail';
+import ProjectDetail from './components/ProjectDetail';
 import QuoteModal from './components/QuoteModal';
 import './App.css';
 
@@ -24,6 +25,12 @@ export default function App() {
             path="/services/:slug"
             element={
               <ServiceDetail onOpenQuote={() => setIsQuoteOpen(true)} />
+            }
+          />
+          <Route
+            path="/projects/:id"
+            element={
+              <ProjectDetail onOpenQuote={() => setIsQuoteOpen(true)} />
             }
           />
         </Routes>

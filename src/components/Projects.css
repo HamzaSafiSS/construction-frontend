@@ -271,6 +271,22 @@
   flex: 1;
 }
 
+.project-card-media-link {
+  display: block;
+  text-decoration: none;
+  overflow: hidden;
+}
+
+.project-card-title-link {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+}
+
+.project-card-title-link:hover .project-card-title {
+  color: var(--color-orange);
+}
+
 /* View Project Link */
 .project-view-link {
   display: inline-flex;
@@ -282,7 +298,14 @@
   font-weight: 800;
   letter-spacing: 0.1em;
   color: var(--color-orange);
+  text-decoration: none;
+  cursor: pointer;
   padding: 0;
+  transition: color var(--transition-fast);
+}
+
+.project-view-link:hover {
+  color: var(--color-orange-hover);
 }
 
 .project-view-arrow {
