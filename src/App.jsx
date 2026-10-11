@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import HomePage from './components/HomePage';
 import ServiceDetail from './components/ServiceDetail';
 import ProjectDetail from './components/ProjectDetail';
+import Contact from './components/Contact';
 import QuoteModal from './components/QuoteModal';
 import './App.css';
 
@@ -31,6 +32,15 @@ export default function App() {
             path="/projects/:id"
             element={
               <ProjectDetail onOpenQuote={() => setIsQuoteOpen(true)} />
+            }
+          />
+          <Route
+            path="/contact"
+            element={
+              <Contact
+                onOpenQuote={() => setIsQuoteOpen(true)}
+                isPage={true}
+              />
             }
           />
         </Routes>

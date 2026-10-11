@@ -7,6 +7,7 @@ import OurProcess from './OurProcess';
 import Industries from './Industries';
 import SafetyQuality from './SafetyQuality';
 import Testimonials from './Testimonials';
+import Contact from './Contact';
 
 export default function HomePage({ onOpenQuote }) {
   return (
@@ -42,7 +43,9 @@ export default function HomePage({ onOpenQuote }) {
       <div id="team" className="section-anchor"></div>
       <div id="news" className="section-anchor"></div>
       <div id="faqs" className="section-anchor"></div>
-      <div id="contact" className="section-anchor"></div>
+
+      {/* 20. Contact Us Section */}
+      <Contact onOpenQuote={onOpenQuote} />
     </>
   );
 }
