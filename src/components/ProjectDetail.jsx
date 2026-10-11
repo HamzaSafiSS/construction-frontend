@@ -132,32 +132,16 @@ export default function ProjectDetail({ onOpenQuote }) {
           <div className="pd-hero-glow"></div>
         </div>
 
-        {/* Back to Projects Breadcrumb Bar */}
-        <div className="pd-hero-top-nav">
-          <Link to="/" className="pd-back-link">
-            <ArrowLeft size={16} />
-            <span>BACK TO ALL PROJECTS</span>
-          </Link>
-        </div>
-
         {/* Hero Headline Content */}
         <div className="pd-hero-container">
           <div className="pd-hero-content">
-            <div className="pd-hero-badges">
-              <span className="pd-type-pill">{project.projectType || project.category}</span>
-              <span className="pd-status-pill">
-                <CheckCircle2 size={13} />
-                {project.info?.status || 'Completed'}
-              </span>
-            </div>
-
             <h1 className="pd-hero-title">{project.name.toUpperCase()}</h1>
 
             <p className="pd-hero-subtitle">
               {project.overview ? project.overview.split('.')[0] + '.' : project.description}
             </p>
 
-            {/* Quick Meta Indicators */}
+            {/* Clean Meta Indicators */}
             <div className="pd-hero-meta-bar">
               <div className="pd-meta-item">
                 <MapPin size={16} className="pd-meta-icon" />
@@ -171,22 +155,6 @@ export default function ProjectDetail({ onOpenQuote }) {
                 <CalendarDays size={16} className="pd-meta-icon" />
                 <span className="pd-meta-label">Completion Year:</span>
                 <span className="pd-meta-value">{project.year}</span>
-              </div>
-
-              <div className="pd-meta-divider"></div>
-
-              <div className="pd-meta-item">
-                <Maximize2 size={16} className="pd-meta-icon" />
-                <span className="pd-meta-label">Total Area:</span>
-                <span className="pd-meta-value">{project.info?.area || 'Custom Build'}</span>
-              </div>
-
-              <div className="pd-meta-divider"></div>
-
-              <div className="pd-meta-item">
-                <Clock size={16} className="pd-meta-icon" />
-                <span className="pd-meta-label">Duration:</span>
-                <span className="pd-meta-value">{project.info?.duration || '18 Months'}</span>
               </div>
             </div>
 
