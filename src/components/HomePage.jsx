@@ -4,6 +4,7 @@ import WhyChooseUs from './WhyChooseUs';
 import Services from './Services';
 import Projects from './Projects';
 import OurProcess from './OurProcess';
+import Industries from './Industries';
 
 export default function HomePage({ onOpenQuote }) {
   return (
@@ -23,11 +24,13 @@ export default function HomePage({ onOpenQuote }) {
       {/* 9. Our Projects Section (Filterable Gallery) */}
       <Projects />
 
+      {/* 11. Industries / Sector Expertise Section */}
+      <Industries onOpenQuote={onOpenQuote} />
+
       {/* 12. Our Process Section (6-Stage Construction Timeline) */}
       <OurProcess onOpenQuote={onOpenQuote} />
 
       {/* Phase Anchor Containers for Seamless Link Navigation */}
-      <div id="industries" className="section-anchor"></div>
       <div id="team" className="section-anchor"></div>
       <div id="news" className="section-anchor"></div>
       <div id="faqs" className="section-anchor"></div>
